@@ -1,0 +1,72 @@
+<h1>Manage Company</h1>
+<div class="container">
+    <div >
+        <label style="margin: 10px;">Enter ID</label>
+        <input  type="number" name="id" [(ngModel)]="id">
+
+        <button style="margin: 10px;" type="button" class="btn btn-primary" (click)="getcom();">update</button>
+        
+        <button type="button" class="btn btn-primary" (click)="delgetComp();">Delete</button>
+    </div>
+   
+    <div class="row" *ngIf="visible">
+        <div class="col-md-6">
+            <form novalidate #frm="ngForm">
+                <div class="form-group">
+                    <label>Enter Company name</label>
+                    <input class="form-control" id="cname" name="cname" [(ngModel)]="obj.cname" required/>
+                </div>
+                <div class="form-group">
+                    <label>Enter CEO</label>
+                    <input class="form-control" id="ceo" name="ceo" [(ngModel)]="obj.ceo" required/>
+                </div>
+                <div class="form-group">
+                    <label>Select a Sector</label>
+                    <select class="form-control" id="sector"  name="sector" [(ngModel)]="obj.sector" required>
+                        <option *ngFor="let i of sectors" value="{{i.sname}}">{{i.sname}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Select Stock Exchange</label>
+                    <select class="form-control" id="stockexc"  name="stockexc" [(ngModel)]="obj.stockexc" required>
+                        <option *ngFor="let i of stocks" value="{{i.name}}">{{i.name}}</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Enter Description</label>
+                    <input class="form-control" id="desc" name="desc" [(ngModel)]="obj.desc" required/>
+                </div>
+                <div class="form-group">
+                   <button type="submit" class="btn btn-primary" (click)="update();" [disabled]="!frm.valid">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <h3>Companies List</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>CEO</th>
+            <th>Listed</th>
+            <th>Description</th>
+            <th>Sector</th>
+            <th>Stock Exchange</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of companies">
+            <td>{{p.cid}}</td>
+            <td>{{p.cname}}</td>
+            <td>{{p.ceo}}</td>
+            <td>{{p.listed}}</td>
+            <td>{{p.desc}}</td>
+            <td>{{p.sector}}</td>
+            <td>{{p.stockexc}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

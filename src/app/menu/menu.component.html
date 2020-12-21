@@ -1,0 +1,38 @@
+<!-- <div class="container" *ngIf="visible; else menublock">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Login</h1>
+                <form novalidate #frm="ngForm">
+                    <div class="form-group">
+                        <label>Enter username</label>
+                        <input type="text" class="form-control" id="uname" name="uname" [(ngModel)]="uname" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Enter password</label>
+                        <input type="password" class="form-control" id="pass" name="pass" [(ngModel)]="pass" required>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary" (click)="doLogin();" [disabled]="!frm.valid">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>-->
+    
+<div class="container">
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+        <div class="navbar-nav"  >
+            <a class="nav-item nav-link">Upload Data</a>
+            <a class="nav-item nav-link" routerLink="/add-company">Add Company</a>
+            <a class="nav-item nav-link" routerLink="/update-company">Manage Company</a>
+            <a class="nav-item nav-link" routerLink="/add-stock">Add stock</a>
+            <a class="nav-item nav-link" routerLink="/stock-list">Stock Exch.</a>
+            <a class="nav-item nav-link" routerLink="/update-ipo">Manage IPO</a>
+           <a class="nav-item nav-link" (click)="logout();" >Logout</a>
+        </div>
+        
+    </nav>
+</div>
+ 
+
+

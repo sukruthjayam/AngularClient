@@ -1,0 +1,40 @@
+<h1>Add Company</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form novalidate #frm="ngForm">
+                <div class="form-group">
+                    <label>Enter Company name</label>
+                    <input class="form-control" id="cname" name="cname" [(ngModel)]="obj.cname" required/>
+                </div>
+                <div class="form-group">
+                    <label>Enter CEO</label>
+                    <input class="form-control" id="ceo" name="ceo" [(ngModel)]="obj.ceo" required/>
+                </div>
+                <div class="form-group">
+                    <label>Select a Sector</label>
+                    <select class="form-control" id="sector"  name="sector" [(ngModel)]="obj.sector" required>
+                        <option *ngFor="let i of sectors" value="{{i.sname}}">{{i.sname}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Select Stock Exchange</label>
+                    <select class="form-control" id="stockexc"  name="stockexc" [(ngModel)]="obj.stockexc" required>
+                        <option *ngFor="let i of stocks" value="{{i.name}}">{{i.name}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Enter Turnover</label>
+                    <input class="form-control" id="listed" name="listed" [(ngModel)]="obj.listed" required/>
+                </div>
+                <div class="form-group">
+                    <label>Enter Description</label>
+                    <input class="form-control" id="desc" name="desc" [(ngModel)]="obj.desc" required/>
+                </div>
+                <div class="form-group">
+                   <button type="submit" class="btn btn-primary" (click)="save();" [disabled]="!frm.valid">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

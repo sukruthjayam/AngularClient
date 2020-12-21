@@ -1,0 +1,63 @@
+<h1>Manage IPO</h1>
+<div class="container">
+    <div >
+        <label style="margin: 10px;">Enter Name</label>
+        <input  type="text" name="cname" [(ngModel)]="cname">
+        <button style="margin: 10px;" type="button" class="btn btn-primary" (click)="getipo();">search</button>
+    </div>
+   
+    <div class="row" *ngIf="visible">
+        <div class="col-md-6">
+            <form novalidate #frm="ngForm">
+                <div class="form-group">
+                    <label>Enter Company name</label>
+                    <input class="form-control" id="cname" name="cname" [(ngModel)]="obj.cname" required/>
+                </div>
+                <div class="form-group">
+                    <label>Enter Stock Exchange</label>
+                    <input class="form-control" id="stockExchage" name="stockExchage" [(ngModel)]="obj.stockExchage" required/>
+                </div>
+                <div class="form-group">
+                    <label>Enter price per share</label>
+                    <input type="number" class="form-control" id="price_per_share" name="price_per_share" [(ngModel)]="obj.price_per_share" required/>
+                </div>
+                <div class="form-group">
+                    <label>Enter total shares</label>
+                    <input type="number"class="form-control" id="total_shares" name="total_shares" [(ngModel)]="obj.total_shares" required/>
+                </div>
+                <div class="form-group">
+                    <label>Enter date Time</label>
+                    <input class="form-control" id="open_time" name="open_time" [(ngModel)]="obj.open_time" required/>
+                </div>
+                <div class="form-group">
+                   <button type="submit" class="btn btn-primary" (click)="update();" [disabled]="!frm.valid">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <h2>IPO List</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>StockExchage</th>
+            <th>price_per_share</th>
+            <th>Total_shares</th>
+            <th>open_date</th>
+            <th>open_time</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of ipos">
+            <td>{{p.iid}}</td>
+            <td>{{p.cname}}</td>
+            <td>{{p.stockExchage}}</td>
+            <td>{{p.price_per_share}}</td>
+            <td>{{p.total_shares}}</td>
+            <td>{{p.open_time| date}}</td>
+            <td>{{p.open_time| date:"HH:mm"}}</td>
+        </tr>
+    </tbody>
+</table>
+</div>

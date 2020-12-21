@@ -1,0 +1,37 @@
+<div class="container">
+
+
+    <div >
+        <label style="margin: 10px;">Company Pattern</label>
+        <input  type="text" name="pattern" [(ngModel)]="pattern">
+        <button style="margin: 10px;" type="button" class="btn btn-primary" (click)="search();">search</button>
+    </div>
+    
+    <div *ngIf="visible">
+    <h3>Companies List</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>CEO</th>
+                <th>Listed</th>
+                <th>Description</th>
+                <th>Sector</th>
+                <th>Stock Exchange</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of obj">
+                <td>{{p.cid}}</td>
+                <td>{{p.cname}}</td>
+                <td>{{p.ceo}}</td>
+                <td>{{p.listed}}</td>
+                <td>{{p.desc}}</td>
+                <td>{{p.sector}}</td>
+                <td>{{p.stockexc}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>

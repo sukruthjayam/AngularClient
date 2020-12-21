@@ -1,0 +1,21 @@
+<h1>Stocks List</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Brief</th>
+            <th>Address</th>
+            <th>Remarks</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let p of stocks">
+            <td>{{p.sid}}</td>
+            <td>{{p.name}}</td>
+            <td>{{p.brief}}</td>
+            <td>{{p.address}}</td>
+            <td>{{p.remarks}}</td>
+        </tr>
+    </tbody>
+</table>
